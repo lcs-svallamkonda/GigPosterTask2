@@ -61,9 +61,12 @@ for squares in 1...4 {
         }
         // actually draw the rectangles
         //    canvas.drawRectangle(at: Point(x: x, y: y), width: 400, height: 400)
-        canvas.drawRectangle(at: Point(x: x - 210, y: y - 210), width: 400, height: 400, anchoredBy: AnchorPosition.centre)
+        if squares == 1 {
+            canvas.drawRectangle(at: Point(x: x - 210, y: y - 210), width: 400, height: 400, anchoredBy: AnchorPosition.centre)
+        } else if squares == 2 {
+            canvas.drawRectangle(at: Point(x: x + 385, y: y + 385), width: 400, height: 400, anchoredBy: AnchorPosition.centre)
+        }
     }
-    
 }
 
 // draw pink rectangle to cover top of poster
