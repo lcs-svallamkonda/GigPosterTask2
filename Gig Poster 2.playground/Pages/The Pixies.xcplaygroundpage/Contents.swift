@@ -38,28 +38,32 @@ canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
 
 //draw squares with no fill for the four corners
 //create alternating black and white rectangles
-for counter in 1...7 {
+for squares in 1...4 {
     
-    //proper width and conditions for rectangles
-    canvas.defaultBorderWidth = 14
-    canvas.drawShapesWithBorders = true
-    canvas.drawShapesWithFill = false
-    
-    //determine x and y values
-    let x = counter * 28
-    let y = counter * 28
-    
-    //set border color
-    //create variable remainder to alternate colours
-    let remainder = x % 56
-    if remainder == 0 {
-        canvas.borderColor = beige
-    } else {
-        canvas.borderColor = black
+    for counter in 1...7 {
+        
+        //proper width and conditions for rectangles
+        canvas.defaultBorderWidth = 14
+        canvas.drawShapesWithBorders = true
+        canvas.drawShapesWithFill = false
+        
+        //determine x and y values
+        let x = counter * 28
+        let y = counter * 28
+        
+        //set border color
+        //create variable remainder to alternate colours
+        let remainder = x % 56
+        if remainder == 0 {
+            canvas.borderColor = beige
+        } else {
+            canvas.borderColor = black
+        }
+        // actually draw the rectangles
+        //    canvas.drawRectangle(at: Point(x: x, y: y), width: 400, height: 400)
+        canvas.drawRectangle(at: Point(x: x - 210, y: y - 210), width: 400, height: 400, anchoredBy: AnchorPosition.centre)
     }
-// actually draw the rectangles
-//    canvas.drawRectangle(at: Point(x: x, y: y), width: 400, height: 400)
-    canvas.drawRectangle(at: Point(x: x, y: y), width: 200, height: 200, anchoredBy: AnchorPosition.centre)
+    
 }
 
 // draw pink rectangle to cover top of poster
@@ -72,7 +76,7 @@ canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
  ## Use Source Control
  
  Remember to commit and push your work before 12:05 PM on Wednesday, January 15, 2020, please.
-
+ 
  ## Template code
  The code below is necessary to see results in the Assistant Editor at right. Please do not remove.
  */
