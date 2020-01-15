@@ -31,10 +31,42 @@ let beige = Color(hue: 69, saturation: 6, brightness: 87, alpha: 100)
 
 // Begin your solution here...
 //create a pink rectangle to be the background
-canvas.drawShapesWithBorders == false
-canvas.drawShapesWithFill == true
+canvas.drawShapesWithBorders = false
+canvas.drawShapesWithFill = true
 canvas.fillColor = pink
 canvas.drawRectangle(at: Point(x: 0, y: 0), width: 400, height: 600)
+
+//draw squares with no fill for the four corners
+//create alternating black and white rectangles
+for counter in 1...7 {
+    
+    //proper width and conditions for rectangles
+    canvas.defaultBorderWidth = 14
+    canvas.drawShapesWithBorders = true
+    canvas.drawShapesWithFill = false
+    
+    //determine x and y values
+    let x = counter * 28
+    let y = counter * 28
+    
+    //set border color
+    //create variable remainder to alternate colours
+    let remainder = x % 56
+    if remainder == 0 {
+        canvas.borderColor = beige
+    } else {
+        canvas.borderColor = black
+    }
+// actually draw the rectangles
+//    canvas.drawRectangle(at: Point(x: x, y: y), width: 400, height: 400)
+    canvas.drawRectangle(at: Point(x: x, y: y), width: 200, height: 200, anchoredBy: AnchorPosition.centre)
+}
+
+// draw pink rectangle to cover top of poster
+canvas.drawShapesWithBorders = false
+canvas.drawShapesWithFill = true
+canvas.fillColor = pink
+canvas.drawRectangle(at: Point(x: 0, y: 400), width: 400, height: 200)
 
 /*:
  ## Use Source Control
